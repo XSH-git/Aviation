@@ -41,11 +41,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User userLogin(String username, String password) {
+    public int userLogin(String username, String password) {
 
-        //调用dao层数据
-        User result = userDao.selectUserByNameAndPwd(username,password);
-        return userDao.selectUserByNameAndPwd(username,password);
+        //调用dao层数据，获取username和password
+        User user = userDao.selectUserByNameAndPwd(username,password);
+        if (user != null && user.getPassword().equals(password)){
+            return user.getId();
+        }
+        return -1;
     }
 
     @Override
