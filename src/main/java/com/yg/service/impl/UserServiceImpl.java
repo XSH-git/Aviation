@@ -17,16 +17,6 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl() {
         System.out.println("UserServiceImpl");
     }
-//    @Override
-//    public int registerUser(User user) {
-//        //业务处理，补全参数
-//        user.setRole(2);
-//        user.setUserStatus(1);
-//        //调用dao层数据
-//        int  result = userDao.insertUser(user);
-//
-//        return result;
-//    }
 
     @Override
     public int userRegist(User user) {
@@ -47,14 +37,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int userLogin(String username, String password) {
+    public User userLogin(String username, String password) {
 
-        //调用dao层数据，获取username和password
-        User user = userDao.selectUserByNameAndPwd(username,password);
-        if (user != null && user.getPassword().equals(password)){
-            return user.getId();
-        }
-        return -1;
+//        //调用dao层数据，获取username和password
+//        User user = userDao.selectUserByNameAndPwd(username, password);
+//        if (user != null){
+//            return 1;
+
+//        return -1;//        }
+        return userDao.selectUserByNameAndPwd(username, password);
     }
 
     @Override

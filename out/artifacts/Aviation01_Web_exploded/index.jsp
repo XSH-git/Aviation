@@ -5,6 +5,7 @@
 <%--<jsp:forward page="registerUser">跳转到登录</jsp:forward>--%>
 这是index页面
 <a href="regist.jsp" >跳转注册页面</a>
+<a href="login.jsp">跳转到登录页面</a>
 </body>
 </html>
 

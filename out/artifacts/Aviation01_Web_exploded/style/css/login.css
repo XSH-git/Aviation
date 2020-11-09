@@ -1,0 +1,275 @@
+@charset "UTF-8";
+body{
+	font-family: "Microsoft YaHei";
+	font-size: 14px;
+	margin: 0;
+}
+/* 类选择器 */
+.top {
+    border-top: 4px solid #07C160;
+    height: 60px;
+    line-height: 60px; /* 文字上下居中，设定的数值跟div的高度一样 */
+}
+
+/* 中间容器 */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    /* border:1px solid red; */
+}
+
+/* 左浮动 */
+.topLeft {
+    float: left;
+}
+
+/* 右浮动 */
+.topRight {
+    float: right;
+}
+
+img {
+    vertical-align: middle; /* 图片上下居中 */
+}
+
+/* 元素选择器 */
+a {
+    text-decoration: none; /* 文本修饰：去下划线 */
+	color: #576b95;
+
+}
+
+/* 清楚浮动 */
+.clear {
+    clear: both;
+}
+
+.middle {
+    background: url('../images/bg.jpg');
+    height: 370px;
+	background-position: 50% 0
+}
+
+.login {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    float: right;
+    margin-top: 35px;
+}
+
+.loginContent {
+    width: 300px;
+    height: 240px;
+    margin: 0 auto;
+    /*background-color: pink;*/
+    margin-top: 35px;
+}
+
+/*文本框所在div*/
+.it {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #ccc;
+}
+
+.inputtxt {
+    border: none;
+    width: 230px;
+    height: 38px;
+    font-size: 18px;
+	float: left;
+	margin-left: 10px;
+}
+
+.it > i {
+    display: inline-block; /*内联样式，块级化：理解为div*/
+    background: url("../images/page_login.png");
+    width: 18px;
+    height: 18px;
+	margin-top: 11px;
+	margin-left: 10px;
+	float: left;
+}
+.pwd{
+	background-position: 0 -22px;
+}
+.mt15{
+	margin-top: 15px;
+}
+
+.loginbtn{
+	width: 120px;
+	height: 35px;
+	font-size: 15px;
+	color: white;
+	background-color: #07c160;
+	border: none;
+	border-radius: 5px;
+}
+.id_kind{
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.sysnotice{
+    margin-top: 20px;
+}
+.notices_box {
+    overflow: hidden;
+    zoom: 1;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 90px;
+    line-height: 40px;
+    background-color: #fff;
+    border: 1px solid #e7e7eb;
+}
+.notices_box dt {
+    float: left;
+}
+.notices_box dt i {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0;
+    margin-top: -2px;
+    margin-top: 3px;
+}
+.icon_login {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    margin-top: -11px;
+    width: 16px;
+    height: 18px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.notices_box dd {
+    float: left;
+    margin-left: 30px;
+}
+.notices_box dd i {
+    display: inline-block;
+    font-weight: 400;
+    font-style: normal;
+    vertical-align: middle;
+    color: #d5d5d5;
+    margin-top: -0.2em;
+    margin-top: 0;
+}
+.notices_box dd .notices_title {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 22em;
+}
+.notices_box dd a {
+    color: #222;
+}
+.label_new {
+    background: url(../images/page_login.png) 0 -1806px no-repeat;
+    width: 18px;
+    height: 12px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 6px;
+}
+.label_new {
+    background: url(../images/page_login.png) 0 -1806px no-repeat;
+    width: 18px;
+    height: 12px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 6px;
+}
+.notices_box dd.extra {
+    position: absolute;
+    right: 16px;
+    top: 0;
+}
+.notices_box dd.extra i {
+    margin-left: 2px;
+}
+.icon_arrow {
+    background: url(../images/page_login.png) 0 -1787px no-repeat;
+    width: 16px;
+    height: 15px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.id_kind_title{
+    margin-top: 20px;
+}
+.id_kind_title_p > p{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.id_kind_content {
+    margin-top: 20px;
+    height: 335px;
+}
+.id_kind_box{
+    width:365px;
+    height: 300px;
+    margin: 5px 16px;
+    float: left;
+    border: 1px solid #ccc;
+}
+.id_kind_box_txt{
+    /*text-align: center;*/
+}
+.kind_icon{
+    margin: 0 auto 20px auto;
+    width: 90px;
+    height: 90px;
+    display: block;
+    /*text-align: center;*/
+
+}
+.service{
+    background: url("../images/服务号.png") no-repeat;
+}
+.subscribe{
+    background: url("../images/订阅号.png") no-repeat;
+}
+.app{
+    background: url("../images/小程序.png") no-repeat;
+
+}
+.id_kind_box > dl{
+
+    padding: 20px 40px;
+}
+.id_kind_box > dl >dt{
+    text-align: center;
+    font-size: 16px;
+}
+.id_kind_box > dl >dd{
+    margin: 30px 40px;
+    color: #9a9a9a;
+}
+.companyWechat{
+    /*width: 1000px;*/
+    height: 120px;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+    background: pink;
+}
+.companyWechat:first-child{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.companyWechat_icon{
+    background: url("../images/企业微信.png") ;
+    width: 50px;
+    height: 50px;
+    display: block;
+}

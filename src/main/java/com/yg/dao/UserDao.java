@@ -1,16 +1,18 @@
 package com.yg.dao;
 
 import com.yg.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface UserDao {
 
-    /*根据用户名和密码查询用户信息 ----login*/
-    public User selectUserByNameAndPwd(String username, String password);
 
     /*插入一条用户数据*/
     public int insertUser(User user);
+    /*根据用户名和密码查询用户信息 ----login*/
+    public User selectUserByNameAndPwd(@Param("username") String username, @Param("password") String password);
+
     /*更新用户信息*/
     public int updateUser(User user);
     /*根据用户Id 查找用户信息*/
