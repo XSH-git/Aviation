@@ -1,0 +1,50 @@
+html {
+	background: url("../images/addUserbg.jpg");
+}
+
+body {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.addform {
+	width: 30%;
+	margin: 100px auto;
+}
+
+.addform h2 {
+	text-align: center;
+}
+
+.addform span {
+	color: red;
+	margin-left: 75%;
+	font-size: 15px;
+}
+
+.col-sm-2 {
+	width: 19.667%;
+}
+
+.col-sm-10 {
+	width: 75.333%;
+}
+
+.form-horizontal .control-label {
+	text-align: left;
+}
+
+.form-control {
+	width: 95%;
+}
+
+.col-sm-offset-2 {
+	margin-left: 0;
+}
+
+.col-sm-offset-2 .btn-success {
+	margin-left: 20%;
+}
+
+.col-sm-offset-2 .btn-warning {
+	margin-left: 39%;
+}

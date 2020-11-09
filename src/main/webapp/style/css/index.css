@@ -1,0 +1,13 @@
+@charset "UTF-8";
+html {
+	background: url("../images/addUserbg.jpg");
+}
+body {
+	background-color: rgba(0, 0, 0, 0);
+}
+.col-lg-6 {
+    width: 20%;
+}
+.sele{
+    margin-left: 15px;
+}

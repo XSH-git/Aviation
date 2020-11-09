@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yg.dao.UserDao">
+
+    <!-- public int insertUser(User user);-->
+    <insert id="insertUser">
+        insert into t_user(username,password,realname,sex,mobile,email,role,userstatus)
+        value(#{username},#{password},#{realname},#{sex},#{mobile},#{email},#{role},#{userstatus})
+    </insert>
+
+    <!--public int updateUser(User user)-->
+
+
+
+
+    <sql id="insertColumn">
+        username,password,realname,sex,mobile,email,role,userstatus
+    </sql>
+</mapper>
