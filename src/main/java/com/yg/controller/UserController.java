@@ -82,7 +82,7 @@ public class UserController {
 
 
 
-    @RequestMapping(value = "/loginUser",method = RequestMethod.POST)
+    @RequestMapping(value = "loginUser",method = RequestMethod.POST)
     public String loginUser(String username,String password , Map<String,Object> map,HttpServletRequest request) {
         //参数校验
         String msg = "regist success!";
