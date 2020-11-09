@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 /**
  * 会话监听-   session对象 创建 销毁  参数--修改、移除。。。
  */
-@WebListener
+//@WebListener
 public class WebHttpSessionListener implements ServletContextListener, HttpSessionListener, HttpSessionAttributeListener, HttpSessionActivationListener, HttpSessionBindingListener {
 
     private int userCount = 0;

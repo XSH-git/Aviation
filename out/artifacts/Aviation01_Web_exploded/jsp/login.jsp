@@ -134,7 +134,7 @@
     </script>
 </head>
 <body>
-<div class="form-data">
+<div class="form-data" action="loginUser" method="post">
     <form>
         <table id="loginTable">
             <tr>

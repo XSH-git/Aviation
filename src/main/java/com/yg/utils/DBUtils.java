@@ -1,49 +1,54 @@
 package com.yg.utils;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
-/**
- * 工具类
- * @author XSH
- *
- */
 public class DBUtils {
 
-
-
     private static final Properties PROPERTIES = new Properties();
-    private static final ThreadLocal<Connection> threadlocal = new ThreadLocal<Connection>();
+    private static final ThreadLocal<Connection> threadLocal = new ThreadLocal<>();
+    //获取德鲁伊连接池
+    private static DruidDataSource druidDataSource;
 
-    static {
+
+    static {                                                      // 代指src目录下文件
+        InputStream is = DBUtils.class.getResourceAsStream("/db.properties");
         try {
-            //1.加载驱动
-            //第一次调用进行加载，之后只进行检查操作
-            InputStream is = DBUtils.class.getClassLoader().getResourceAsStream("jdbc.properties");//复用类加载流
             PROPERTIES.load(is);
             Class.forName(PROPERTIES.getProperty("driver"));
+
+            //创建Druid连接池
+            druidDataSource = (DruidDataSource) DruidDataSourceFactory.createDataSource(PROPERTIES);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    // 获取数据源
+    public static DataSource getDataSource() {
+        return druidDataSource;
+    }
+
+    // 获取连接
     public static Connection getConnection() {
-        Connection connection = threadlocal.get();
+        Connection connection = threadLocal.get();
+//        Connection connection = null;
         try {
-            //2.连接mysql
             if (connection == null) {
-                String url = PROPERTIES.getProperty("url");
-                String user = PROPERTIES.getProperty("username");
-                String password = PROPERTIES.getProperty("password");
-                connection = DriverManager.getConnection(url, user, password);
-                threadlocal.set(connection);
-                System.out.println("connection重新装填");
+                connection = DriverManager.getConnection(PROPERTIES.getProperty("url"), PROPERTIES.getProperty("username"), PROPERTIES.getProperty("password"));
+                threadLocal.set(connection);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            //connection = DriverManager.getConnection(PROPERTIES.getProperty("url"), PROPERTIES.getProperty("username"), PROPERTIES.getProperty("password"));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        System.out.println("此时的connection" + connection);
+
         return connection;
     }
 
@@ -52,57 +57,52 @@ public class DBUtils {
         try {
             Connection connection = getConnection();
             connection.setAutoCommit(false);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
     }
 
     //提交事务
     public static void commit() {
-        Connection connection = getConnection();
+        Connection connection = null;
         try {
+            connection = getConnection();
             connection.commit();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            closeAll(connection,null,null);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeAll(connection, null, null);
         }
-
     }
 
     //回滚
-    public static void rollback() {
-        Connection connection = getConnection();
+    public static void rollBack() {
+        Connection connection = null;
         try {
+            connection = getConnection();
             connection.rollback();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }finally {
-            closeAll(connection,null,null);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeAll(connection, null, null);
         }
-
     }
 
-    public static void closeAll(Connection connection, Statement statement, ResultSet resultSet) {
+    // 释放资源
+    public static void closeAll(Connection conn, Statement sm, ResultSet resultSet) {
         try {
-            if (connection != null) {
-                connection.close();
-                System.out.println("connection关闭");
-            }
-            if (statement != null) {
-                statement.close();
-                System.out.println("statement关闭");
-            }
             if (resultSet != null) {
                 resultSet.close();
-                threadlocal.remove();
-                System.out.println("connection关闭" + threadlocal.get());
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            if (sm != null) {
+                sm.close();
+            }
+            if (conn != null) {
+                conn.close();
+                threadLocal.remove();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
-
 }
-

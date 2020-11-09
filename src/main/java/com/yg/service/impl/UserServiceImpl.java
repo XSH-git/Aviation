@@ -36,8 +36,14 @@ public class UserServiceImpl implements UserService {
         user.setSex("1");
         //调用dao层数据
         int  result = userDao.insertUser(user);
+//        if (user.getUsername() != null || user.getPassword() != null || user.getRealName() != null || user.getEmail() != null || user.getMobile() != null  ) {
+//            return result;
+//        }
+        if (user != null ){
+            return result;
+        }
 
-        return result;
+        return -1;
     }
 
     @Override

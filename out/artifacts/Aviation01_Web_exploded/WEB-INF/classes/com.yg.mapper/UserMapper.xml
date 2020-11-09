@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yg.dao.UserDao">
 
+    <!--根据用户名和密码查询用户信息public User selectUserByNameAndPwd(String username, String password);-->
+    <select id="selectUserByNameAndPwd" resultType="com.yg.pojo.User">
+        select * from t_user where username=#{username} and password=#{password}
+    </select>
+
     <!-- public int insertUser(User user);-->
     <insert id="insertUser">
         insert into t_user(username,password,realname,sex,mobile,email,role,userstatus)
